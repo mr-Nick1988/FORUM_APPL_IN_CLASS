@@ -10,7 +10,7 @@ import telran.java58.accounting.dto.UserDto;
 import telran.java58.accounting.model.User;
 
 
-@Service
+ @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
