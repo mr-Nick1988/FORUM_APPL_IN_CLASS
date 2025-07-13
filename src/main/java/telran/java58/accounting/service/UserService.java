@@ -1,6 +1,7 @@
 package telran.java58.accounting.service;
 
 import telran.java58.accounting.dto.NewUserDto;
+import telran.java58.accounting.dto.RoleResponseDto;
 import telran.java58.accounting.dto.UpdateUserDto;
 import telran.java58.accounting.dto.UserDto;
 
@@ -12,9 +13,9 @@ public interface UserService {
 
     UserDto updateUser(String user, UpdateUserDto userDto);
 
-    UserDto addRole(String user, String role);
+    RoleResponseDto addRole(String user, String role);
 
-    UserDto deleteRole(String user, String role);
+    RoleResponseDto deleteRole(String user, String role);
 
     UserDto getUser(String user);
 }

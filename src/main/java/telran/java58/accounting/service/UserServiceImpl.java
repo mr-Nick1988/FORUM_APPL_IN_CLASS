@@ -5,6 +5,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import telran.java58.accounting.dao.UserRepository;
 import telran.java58.accounting.dto.NewUserDto;
+import telran.java58.accounting.dto.RoleResponseDto;
 import telran.java58.accounting.dto.UpdateUserDto;
 import telran.java58.accounting.dto.UserDto;
 import telran.java58.accounting.model.User;
@@ -45,19 +46,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto addRole(String user, String role) {
+    public RoleResponseDto addRole(String user, String role) {
         User userEntity = userRepository.findById(user).orElseThrow();
         userEntity.getRoles().add(role.toUpperCase());
         userRepository.save(userEntity);
-        return modelMapper.map(userEntity, UserDto.class);
+        return new RoleResponseDto(user, userEntity.getRoles());
     }
 
     @Override
-    public UserDto deleteRole(String user, String role) {
+    public RoleResponseDto deleteRole(String user, String role) {
         User userEntity = userRepository.findById(user).orElseThrow();
         userEntity.getRoles().remove(role.toUpperCase());
         userRepository.save(userEntity);
-        return modelMapper.map(userEntity, UserDto.class);
+        return new RoleResponseDto(user, userEntity.getRoles());
     }
 
     @Override

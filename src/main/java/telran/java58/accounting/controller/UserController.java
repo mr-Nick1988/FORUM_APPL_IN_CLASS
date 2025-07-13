@@ -4,6 +4,7 @@ package telran.java58.accounting.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import telran.java58.accounting.dto.NewUserDto;
+import telran.java58.accounting.dto.RoleResponseDto;
 import telran.java58.accounting.dto.UpdateUserDto;
 import telran.java58.accounting.dto.UserDto;
 import telran.java58.accounting.service.UserService;
@@ -37,12 +38,12 @@ public class UserController {
     }
 
     @PatchMapping("/user/{user}/role/{role}")
-    public UserDto addRole(@PathVariable String user, @PathVariable String role) {
+    public RoleResponseDto addRole(@PathVariable String user, @PathVariable String role) {
         return userService.addRole(user, role);
     }
 
     @DeleteMapping("/user/{user}/role/{role}")
-    public UserDto deleteRole(@PathVariable String user, @PathVariable String role) {
+    public RoleResponseDto deleteRole(@PathVariable String user, @PathVariable String role) {
         return userService.deleteRole(user, role);
     }
 
